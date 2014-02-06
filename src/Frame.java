@@ -12,6 +12,12 @@ public class Frame {
 	Frame(int width, int height, Point origin) {
 		setWidth(width);
 		setHeight(height);
+		setOrigin(origin);
+	}
+	Frame(Frame frame) {
+		setWidth(frame.getWidth());
+		setHeight(frame.getHeight());
+		setOrigin(frame.getOrigin());
 	}
 
 	public boolean inBounds(Point point) {
@@ -43,4 +49,12 @@ public class Frame {
 	public void setOrigin(Point origin) {
 		_origin = origin;
 	}
+	public Frame copy() {
+		return new Frame(getWidth(),getHeight(),getOrigin());
+	}
+	@Override
+	public String toString() {
+		return "<" + getWidth() + "," + getHeight() + "," + getOrigin() + ">";
+	}
+
 }
