@@ -1,6 +1,9 @@
 public class Point {
 	int _x;
 	int _y;
+	Point(Point point) {
+		this(point.getX(), point.getY());
+	}
 	Point(int x, int y) {
 		setX(x);
 		setY(y);
@@ -45,5 +48,8 @@ public class Point {
 			boolean yIsEqual = this.getY() == p.getY();
 			return xIsEqual && yIsEqual;
 		}
+	}
+	public Point copy() {
+		return new Point(getX(),getY());
 	}
 }

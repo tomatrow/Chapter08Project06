@@ -1,18 +1,22 @@
 public class Frame {
 	private int _width;
 	private int _height;
+	private Point _origin;
 	
 	Frame() {
 		this(0,0);
 	}
 	Frame(int width, int height) {
+		this(width,height,new Point(0,0));
+	}
+	Frame(int width, int height, Point origin) {
 		setWidth(width);
 		setHeight(height);
 	}
 
 	public boolean inBounds(Point point) {
-		boolean xInBounds = (point.getX() < getWidth());
-		boolean yInBounds = (point.getY() < getHeight());
+		boolean xInBounds = (point.getX() < getOrigin().getX() + getWidth());
+		boolean yInBounds = (point.getY() < getOrigin().getY() + getHeight());
 		return xInBounds && yInBounds;
 	}
 
@@ -22,6 +26,9 @@ public class Frame {
 	}
 	public int getHeight() {
 		return _height;
+	}
+	public Point getOrigin() {
+		return _origin.copy();
 	}
 	public void setWidth(int width) {
 		if (width < 0)
@@ -33,5 +40,7 @@ public class Frame {
 			throw new IllegalArgumentException("Negative " + height + "height.");
 		_height = height;
 	}
-
+	public void setOrigin(Point origin) {
+		_origin = origin;
+	}
 }
