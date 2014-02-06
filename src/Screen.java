@@ -5,16 +5,13 @@ public class Screen {
 
 	Screen(Frame frame) {
 		setFrame(frame);
-		_grid = new boolean[getFrame().getWidth()][getFrame().getHeight()];
 	}
-
 	
 	private void plot(int x,int y) {
 		_grid[x][y] = true;
 	}
 	public boolean[][] getGrid() {
 		boolean[][] publicGrid = new boolean[_grid.length][_grid[0].length];
-
 		for (int x = 0;x < _grid.length; x++) {
 			for (int y = 0;y < _grid[0].length; y++) { 
 				publicGrid[x][y] = _grid[x][y];
@@ -72,6 +69,13 @@ public class Screen {
 	}
 	public void setFrame(Frame frame) {
 		_frame = frame;
+		boolean[][] newGrid = new boolean[frame.getWidth()][frame.getHeight()];
+		for (int x = 0;x < newGrid.length;x++) {
+			for (int y = 0;y < newGrid[x].length;y++) {
+				newGrid[x][y] = _grid[x][y];
+			}
+		}
+		_grid = newGrid;
 	}
 
 }
