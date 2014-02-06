@@ -50,6 +50,6 @@ public class Point {
 		}
 	}
 	public Point copy() {
-		return new Point(getX(),getY());
+		return new Point(this);
 	}
 }
