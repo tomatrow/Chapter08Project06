@@ -3,14 +3,20 @@ import java.io.InputStreamReader;
 import java.io.IOException;
 
 public class Chapter08Project06 {
+	public static Frame DEFAULT_FRAME = new Frame(10,10,new Point(10,10));
+
 	public static void main(String[] args) {
-		Screen s = new Screen(new Frame(200,30));
-		Figure r = new Rectangle(s,new Frame(10,10,new Point(10,10)));
+		Screen s = new Screen(getTerminalFrame());
+		Figure r = new Rectangle(s,DEFAULT_FRAME);
+		Figure t = new Triangle(s,DEFAULT_FRAME);
 
 		r.draw();
 		r.center();
+		t.draw();
+		
 		s.print();
 	}
+
 	public static Frame getTerminalFrame() {
 		Frame terminalFrame = new Frame();
 
