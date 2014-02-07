@@ -1,6 +1,29 @@
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.io.IOException;
+/* Chapter No. 08 - Project No. 06
+    File Name:          Chapter08Project06.java
+    Programmer:         Andrew Caldwell
+    Date Last Modified: Feb. 6, 2014
+
+    Problem Statement:
+		Implement classes from 8.5
+
+    Overall Plan
+    * make a coordinate system that can hold the figures.
+    * find an algorithm used to draw pixels
+    * use algorithm in Screen class
+    * just use the figures for holding their points
+
+    Classes needed and Purpose
+    main class - Chapter08Project06
+    Figure - Abstract base class
+    Rectangle - Figure subclass
+    Triangle - Figure subclass
+    Screen - grid
+	Point - X,Y
+	Frame - bounds and origin
+*/
+
+
+import java.io.*;
 
 public class Chapter08Project06 {
 	public static Frame DEFAULT_FRAME = new Frame(10,10,new Point(10,10));
@@ -13,7 +36,7 @@ public class Chapter08Project06 {
 		r.draw();
 		r.center();
 		t.draw();
-		
+
 		s.print();
 	}
 
